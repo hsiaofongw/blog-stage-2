@@ -1,5 +1,4 @@
 import React from "react"
-import { Link } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -11,10 +10,7 @@ import CardSummary from "../components/card-summary"
 const IndexPage = () => (
     <Layout>
         <SEO title="友链" />
-        <Menu>
-            <Link to="/friends/">友链</Link>
-            <Link to="/about/">关于</Link>
-        </Menu>
+        <Menu/>
         <div id="container-of-cards">
             {
                 CardData.map(
