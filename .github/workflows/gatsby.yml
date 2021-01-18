@@ -1,25 +1,12 @@
-on: push
+name: learn-github-actions
+on: [push]
 jobs:
-  build:
+  check-bats-version:
     runs-on: ubuntu-latest
     steps:
-      - run: sudo su
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2.1.4
-      - run: npm install
+      - uses: actions/setup-node@v1
+      - run: npm install -g bats
+      - run: bats -v
       - run: npm install -g gatsby-cli
-      - run: PATH=$PATH
-      - run: gatsby build
-      - name: Rsync
-        uses: Burnett01/rsync-deployments@4.1
-        with: 
-          switches: -avzr --delete
-          path: /public/
-          remote_port: 22963
-          remote_path: /var/www/exploro.one/
-          remote_host: 173.82.16.201
-          remote_user: root
-          remote_key: ${{ secrets.DEPLOY_KEY }}
-        
-
-  
+      - run: gatsby --version
