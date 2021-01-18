@@ -4,10 +4,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: enriikke/gatsby-gh-pages-action@v2
+      - uses: jzweifel/gatsby-cli-github-action@master
         with:
-          access-token: ${{ secrets.ACCESS_TOKEN }}
-          skip-publish: true
+          gatsby-arg: build
       - name: Rsync
         uses: Burnett01/rsync-deployments@4.1
         with: 
