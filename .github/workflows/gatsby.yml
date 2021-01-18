@@ -13,6 +13,7 @@ jobs:
         with: 
           switches: -avzr --delete
           path: public/
+          remote_port: 22963
           remote_path: /var/www/exploro.one/
           remote_host: 173.82.16.201
           remote_user: root
