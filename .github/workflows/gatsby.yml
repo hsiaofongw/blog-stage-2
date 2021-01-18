@@ -7,6 +7,7 @@ jobs:
       - uses: actions/setup-node@v2.1.4
       - run: npm install
       - run: npm install -g gatsby-cli
+      - run: gatsby build
       - name: Rsync
         uses: Burnett01/rsync-deployments@4.1
         with: 
