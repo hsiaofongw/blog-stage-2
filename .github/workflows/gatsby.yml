@@ -6,7 +6,8 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2.1.4
       - run: npm install
-      - run: npm install gatsby-cli
+      - run: sudo npm install -g gatsby-cli
+      - run: PATH=$PATH
       - run: gatsby build
       - name: Rsync
         uses: Burnett01/rsync-deployments@4.1
