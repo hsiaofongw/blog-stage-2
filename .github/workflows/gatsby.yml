@@ -6,6 +6,7 @@ jobs:
       - uses: actions/checkout@v2
       - uses: enriikke/gatsby-gh-pages-action@v2
         with:
+          access-token: ${{ secrets.ACCESS_TOKEN }}
           skip-publish: true
       - name: Rsync
         uses: Burnett01/rsync-deployments@4.1
