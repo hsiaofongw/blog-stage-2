@@ -1,20 +1,21 @@
-on: push
-name: Build Gatsby Site
+on: [push]
 jobs:
-  build:
-    name: Build Gatsby Site
+  check-bats-version:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@master
-      uses: jzweifel/gatsby-cli-github-action@master
-      with:
-        gatsby-arg: build
-      uses: uses: burnett01/rsync-deployments@4.1
-      with: 
-        switches: -avzr --delete
-        path: public/
-        remote_path: /var/www/exploro.one/
-        remote_host: 173.82.16.201
-        remote_user: root
-        remote_key: ${{ secrets.DEPLOY_KEY }}
-    
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+      - name: Build gatsby
+        uses: jzweifel/gatsby-cli-github-action@v1.0.0
+        with:
+          gatsby-arg: build
+      - name: Rsync
+        uses: Burnett01/rsync-deployments@4.1
+        with: 
+          switches: -avzr --delete
+          path: public/
+          remote_path: /var/www/exploro.one/
+          remote_host: 173.82.16.201
+          remote_user: root
+          remote_key: ${{ secrets.DEPLOY_KEY }}
+  
