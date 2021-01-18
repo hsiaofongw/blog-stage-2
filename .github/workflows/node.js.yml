@@ -36,3 +36,12 @@ jobs:
     - run: npm install
     - run: npm install -g gatsby-cli
     - run: gatsby build
+    - uses: Burnett01/rsync-deployments@4.1
+      with: 
+        switches: -avzr --delete
+        path: ./public/
+        remote_path: /var/www/exploro.one/
+        remote_host: ${{ secrets.DEPLOY_HOST }}
+        remote_port: ${{ secrets.DEPLOY_PORT }}
+        remote_user: ${{ secrets.DEPLOY_USER }}
+        remote_key: ${{ secrets.DEPLOY_KEY }}
