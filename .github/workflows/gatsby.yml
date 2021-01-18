@@ -5,7 +5,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - run: ls --all
       - uses: actions/setup-node@v1
+      - run: node --version
+      - run: npm --version
       - run: npm install -g gatsby-cli
       - run: gatsby --version
       - run: npm install
