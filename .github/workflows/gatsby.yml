@@ -6,11 +6,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
-    - name: Build Gatsby Site
       uses: jzweifel/gatsby-cli-github-action@master
       with:
         gatsby-arg: build
-    - name: Rsync
       uses: uses: burnett01/rsync-deployments@4.1
       with: 
         switches: -avzr --delete
@@ -19,5 +17,4 @@ jobs:
         remote_host: 173.82.16.201
         remote_user: root
         remote_key: ${{ secrets.DEPLOY_KEY }}
-    
     
