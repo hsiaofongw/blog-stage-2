@@ -3,10 +3,11 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - run: sudo su
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2.1.4
       - run: npm install
-      - run: sudo npm install -g gatsby-cli
+      - run: npm install -g gatsby-cli
       - run: PATH=$PATH
       - run: gatsby build
       - name: Rsync
