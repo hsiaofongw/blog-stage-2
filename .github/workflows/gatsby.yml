@@ -6,10 +6,10 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: ls --all
-      - uses: actions/setup-node@v1
+      - uses: actions/setup-node@v2
       - run: node --version
       - run: npm --version
-      - run: npm install -g gatsby-cli
+      - run: npm install -g gatsby-cli@latest
       - run: gatsby --version
       - run: npm install
       - run: gatsby build
