@@ -1,0 +1,22 @@
+[
+    {
+        "name": "基于LSA的文本索引技术初探",
+        "date": "2020-01-17",
+        "file": "https://static.exploro.one/pdf/semantic-indexing.pdf"
+    },
+    {
+        "name": "用CUDA在GPU上实现遗传算法",
+        "date": "2020-01-17",
+        "file": "https://static.exploro.one/pdf/gpu-tsp.pdf"
+    },
+    {
+        "name": "SVD方法应用于矩阵近似",
+        "date": "2020-01-13",
+        "file": "https://static.exploro.one/pdf/svd-matrix-approximation.pdf"
+    },
+    {
+        "name": "并行化计算尝试",
+        "date": "2020-01-12",
+        "file": "https://static.exploro.one/pdf/gpu-accel.pdf"
+    }
+]

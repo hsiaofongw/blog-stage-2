@@ -15,7 +15,7 @@ const IndexPage = () => (
             {
                 CardData.map(
                     (data, index) => {
-                        return <CardOfFriend link={data.link} favicon={data.avatar} alt="图片" />
+                        return (<CardOfFriend link={data.link} favicon={data.avatar} alt="图片" />);
                     }
                 )
             }
@@ -28,6 +28,7 @@ const IndexPage = () => (
                         articleName={data.title} 
                         date={data.addDate+" 加入"} 
                         description={data.description}
+                        href={data.link}
                     />
                 }
             )
