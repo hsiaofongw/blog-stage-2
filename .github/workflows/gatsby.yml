@@ -1,17 +1,12 @@
-name: learn-github-actions
+name: Gatsby Publish
+
 on: [push]
+
 jobs:
-  check-bats-version:
+  build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - run: ls --all
-      - uses: actions/setup-node@v2
-      - run: node --version
-      - run: npm --version
-      - run: npm install -g gatsby-cli@latest
-      - run: gatsby --version
-      - run: npm install
-      - run: gatsby build
-      - run: ls --all
-        
+      - uses: actions/checkout@v1
+      - uses: enriikke/gatsby-gh-pages-action@v2
+        with:
+          skip-publish: true
