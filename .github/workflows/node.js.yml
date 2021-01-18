@@ -14,6 +14,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+    - run: md5sum ./src/images/*
     - run: git lfs fetch
     - run: git lfs checkout
+    - run: md5sum ./src/images/*
   
