@@ -18,7 +18,7 @@ jobs:
           remote_host: 173.82.16.201
           remote_user: root
           remote_key: ${{ secrets.DEPLOY_KEY }}
-      - run: echo ${{ secrets.DEPLOY_KEY }}
+      - run: ls .
         
 
   
