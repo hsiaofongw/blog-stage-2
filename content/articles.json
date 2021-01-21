@@ -1,5 +1,10 @@
 [
     {
+        "name": "神经网络教程",
+        "date": "2021-01-22",
+        "file": "https://static.exploro.one/pdf/neuralnet.pdf"
+    },
+    {
         "name": "支持向量机的简单实现",
         "date": "2021-01-19",
         "file": "https://static.exploro.one/pdf/svm-intro.pdf"
