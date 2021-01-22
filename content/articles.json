@@ -1,5 +1,10 @@
 [
     {
+        "name": "用GPU加速运行《生命游戏》",
+        "date": "2021-01-23",
+        "file": "https://static.exploro.one/pdf/automata-cuda.pdf"
+    },
+    {
         "name": "神经网络教程",
         "date": "2021-01-22",
         "file": "https://static.exploro.one/pdf/neuralnet.pdf"
