@@ -1,5 +1,10 @@
 [
     {
+        "name": "几个向量化计算的小技巧",
+        "date": "2021-01-27",
+        "file": "https://static.exploro.one/pdf/vectorization-computing-intro.pdf"
+    },
+    {
         "name": "将多个矩阵方程的求解并行化",
         "date": "2021-01-27",
         "file": "https://static.exploro.one/pdf/parallelization-of-solving-matrix-equations.pdf"
