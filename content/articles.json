@@ -1,5 +1,10 @@
 [
     {
+        "name": "三维物体在二维平面上的投影的计算",
+        "date": "2021-01-30",
+        "file": "https://static.exploro.one/pdf/cube.pdf"
+    },
+    {
         "name": "几个向量化计算的小技巧",
         "date": "2021-01-27",
         "file": "https://static.exploro.one/pdf/vectorization-computing-intro.pdf"
