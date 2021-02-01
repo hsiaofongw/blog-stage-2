@@ -53,5 +53,10 @@
         "name": "并行化计算尝试",
         "date": "2021-01-12",
         "file": "https://static.exploro.one/pdf/gpu-accel.pdf"
+    },
+    {
+        "name": "更早期的文章",
+        "date": "2020-12-31之前",
+        "file": "https://beyondstars.xyz/"
     }
 ]
