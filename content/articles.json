@@ -1,5 +1,10 @@
 [
     {
+        "name": "主成分分析教程",
+        "date": "2021-02-03",
+        "file": "https://static.exploro.one/pdf/pca-tutorial.pdf"
+    },
+    {
         "name": "学习统计学习方法的思考与总结",
         "date": "2021-02-02",
         "file": "https://static.exploro.one/pdf/statistical-learning-methods.pdf"
