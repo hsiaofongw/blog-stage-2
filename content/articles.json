@@ -1,5 +1,10 @@
 [
     {
+        "name": "向量函数的导数：以神经网络的梯度下降方法为例",
+        "date": "2021-02-07",
+        "file": "https://static.exploro.one/pdf/vector-valued-function.pdf"
+    },
+    {
         "name": "主成分分析教程",
         "date": "2021-02-03",
         "file": "https://static.exploro.one/pdf/pca-tutorial.pdf"
