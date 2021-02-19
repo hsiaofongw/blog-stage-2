@@ -1,5 +1,10 @@
 [
     {
+        "name": "用Celery实现多台设备的协同工作",
+        "date": "2021-02-19",
+        "file": "https://static.exploro.one/pdf/celery-intro.pdf"
+    },
+    {
         "name": "向量函数的导数：以神经网络的梯度下降方法为例",
         "date": "2021-02-07",
         "file": "https://static.exploro.one/pdf/vector-valued-function.pdf"
