@@ -1,5 +1,10 @@
 [
     {
+        "name": "用向量方法巧解初中几何题",
+        "date": "2021-02-21",
+        "file": "https://static.exploro.one/pdf/geometry-vector-approach-1.pdf"
+    },
+    {
         "name": "用Celery实现多台设备的协同工作",
         "date": "2021-02-19",
         "file": "https://static.exploro.one/pdf/celery-intro.pdf"
