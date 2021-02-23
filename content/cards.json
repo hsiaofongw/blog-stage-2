@@ -1,4 +1,4 @@
-[ 
+[
     {
         "title": "idealclover",
         "description": "是翠翠的个人网站！",
@@ -322,6 +322,15 @@
         "description": "我与成长，至死方休",
         "avatar": "https://47.112.174.131/tx.png",
         "addDate": "2020-12-19",
+        "dateVerified": true,
+        "dateVerifiedBy": "email"
+    },
+    {
+        "title": "TIMEGG",
+        "description": "放进时光蛋里。",
+        "avatar": "https://github.com/cbhua/cbhua.github.io/blob/master/images/icon.png",
+        "link": "https://timegg.top",
+        "addDate": "2021-02-23",
         "dateVerified": true,
         "dateVerifiedBy": "email"
     }
