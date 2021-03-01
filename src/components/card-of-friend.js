@@ -2,9 +2,9 @@ import React from "react"
 
 export default function CardOfFriend(props) {
     return (
-        <div class="card-of-friend">
+        <div className="card-of-friend">
             <a href={props.link}>
-            <img class="favicon-of-friend" src={props.favicon} />
+            <img alt="img" className="favicon-of-friend" src={props.favicon} />
             </a>
         </div>
     );

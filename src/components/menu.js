@@ -4,7 +4,7 @@ import { Link } from "gatsby"
 
 export default function Menu() {
     return (
-        <div class="menu">
+        <div className="menu">
         <Link to="/">文章</Link> 
         <Link to="/search/">检索</Link> 
         <Link to="/friends/">友链</Link> 

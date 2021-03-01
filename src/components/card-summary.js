@@ -3,10 +3,10 @@ import React from "react"
 export default function CardSummary(props) {
     return (
         <a href={props.href}>
-            <div class="card-summary">
-                <h3 class="article-title">{props.articleName}</h3>
-                <div class="card-description">{props.description}</div>
-                <div class="date">{props.date}</div>
+            <div className="card-summary">
+                <h3 className="article-title">{props.articleName}</h3>
+                <div className="card-description">{props.description}</div>
+                <div className="date">{props.date}</div>
             </div>
         </a>
     );

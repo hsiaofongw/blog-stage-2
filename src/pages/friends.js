@@ -20,32 +20,29 @@ class Friends extends React.Component {
     }
 
     render() {
+        if (CardData.length >= 2) {
+            for (const i in CardData) {
+                let choose = getRandomIntInclusive(i, CardData.length-1);
+
+                const temp = CardData[i];
+                CardData[i] = CardData[choose];
+                CardData[choose] = temp;
+            }
+        }
+
         let avatars = CardData.map((data, index) => {
-            return <CardOfFriend link={data.link} favicon={data.avatar} alt="图片" />;
+            return <CardOfFriend key={data.link} link={data.link} favicon={data.avatar} alt="图片" />;
         });
 
         let records = CardData.map((data, index) => {
             return <CardSummary 
+                key={data.link}
                 articleName={data.title} 
                 date={data.addDate+" 加入"} 
                 description={data.description}
                 href={data.link}
             />;
         });
-
-        if (records.length >= 2) {
-            for (const i in records) {
-                let choose = getRandomIntInclusive(i, records.length-1);
-
-                let temp = records[i];
-                records[i] = records[choose];
-                records[choose] = temp;
-
-                temp = avatars[i];
-                avatars[i] = avatars[choose];
-                avatars[choose] = temp;
-            }
-        }
 
         return <Layout>
             <SEO title="友链" />

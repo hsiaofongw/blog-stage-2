@@ -7,20 +7,29 @@ import Article from "../components/article"
 
 import ArticleData from "../../content/articles.json"
 
-const IndexPage = () => (
-    <Layout>
-        <SEO title="首页" />
-        <Menu />
-        <div>
-            {
-                ArticleData.map(
-                    (data, index) => {
-                        return (<Article articleName={data.name} date={data.date} href={data.file} />);
-                    }
-                )
-            }
-        </div>
-    </Layout>
-)
+class HomePage extends React.Component {
 
-export default IndexPage
+    constructor(props) {
+        super(props);
+
+        console.log("Homepage initializing...");
+
+    }
+
+    render() {
+        let articleElements = ArticleData.map(
+            (data, index) => {
+                return <Article key={data.file} articleName={data.name} date={data.date} href={data.file} />;
+            }
+        );
+
+        return <Layout>
+            <SEO title="首页" />
+            <Menu />
+            <div>{articleElements}</div>
+        </Layout>;
+    }
+
+}
+
+export default HomePage;
