@@ -341,5 +341,13 @@
         "link": "https://arn0.rog",
         "addDate": "2021-03-01",
         "dateVerified": true
+    },
+    {
+        "title": "PRIN BLOG",
+        "description": "全栈",
+        "avatar": "http://gravatar.com/avatar/22812bcbbdc71b0cb98346197317c9ce?s=100",
+        "link": "https://printempw.github.io/",
+        "addDate": "2021-03-01",
+        "dateVerified": true
     }
 ]
