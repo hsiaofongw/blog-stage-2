@@ -31,7 +31,7 @@ class Friends extends React.Component {
                 description={data.description}
                 href={data.link}
             />;
-        })
+        });
 
         if (records.length >= 2) {
             for (const i in records) {
