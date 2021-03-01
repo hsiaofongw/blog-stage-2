@@ -80,4 +80,10 @@ h3 {
     grid-template-columns: repeat(auto-fill, 60px);
     grid-gap: 6px;
     margin-top: 2rem;
+
+    justify-items: center;
+    align-items: center;
+    padding: 6px;
+
+    justify-content: center;
 }
