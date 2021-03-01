@@ -10,7 +10,7 @@
     {
         "title": "kok的笔记本",
         "description": "分享知识和经验，让世界更美好一些",
-        "avatar": "https://blog-1254831322.cos.ap-beijing.myqcloud.com/avater/avater-140.png",
+        "avatar": "https://blog-1254831322.cos.ap-beijing.myqcloud.com/favicon/favicon.ico",
         "link": "https://wocai.de/",
         "addDate": "2020-03-16",
         "dateVerified": false
@@ -26,7 +26,7 @@
     {
         "title": "Desvl's Blog",
         "description": "Interest comes from thinking.",
-        "avatar": "/devsl-xyz-avatar.jpeg",
+        "avatar": "https://desvl.xyz/image/avatar.jpeg",
         "link": "https://desvl.xyz/",
         "addDate": "2020-03-21",
         "dateVerified": true,
@@ -53,7 +53,7 @@
     {
         "title": "Geekinney Blog",
         "link": "https://geekinney.com/",
-        "avatar": "https://geekinney.com/assets/image/favicon.ico",
+        "avatar": "https://geekinney.com/static/image/favicon.ico",
         "description": "happy hacking emacs!",
         "addDate": "2020-04-08",
         "dateVerified": false
@@ -70,7 +70,7 @@
         "link": "https://asuhe.jp/",
         "title": "約束の明日へ",
         "description": "また君を思い出すよ",
-        "avatar": "https://asuhe.jp/wp-content/uploads/2020/02/%E5%9B%BE%E7%89%872.png",
+        "avatar": "https://asuhe.jp/wp-content/uploads/2021/01/avatar.webp",
         "addDate": "2020-04-16",
         "dateVerified": false
     },
@@ -245,7 +245,7 @@
     {
         "title": "I BCL.",
         "link": "https://ibcl.us/",
-        "avatar": "https://ibcl.us/images/avatar.jpg",
+        "avatar": "https://ibcl.us/images/avatar.png",
         "description": "一位热爱无线电广播的高中学生的博客",
         "addDate": "2020-06-07",
         "dateVerified": true,
@@ -320,7 +320,7 @@
         "title": "Sugaryboy",
         "link": "https://www.sugaryboy.com/",
         "description": "我与成长，至死方休",
-        "avatar": "https://47.112.174.131/tx.png",
+        "avatar": "https://www.sugaryboy.com/img/favicon.png",
         "addDate": "2020-12-19",
         "dateVerified": true,
         "dateVerifiedBy": "email"
