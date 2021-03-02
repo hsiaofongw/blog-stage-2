@@ -5,7 +5,7 @@
         "file": "https://static.exploro.one/pdf/geometry-vector-approach-1.pdf"
     },
     {
-        "name": "用Celery实现多台设备的协同工作",
+        "name": "用 Celery 实现多台设备的协同工作",
         "date": "2021-02-19",
         "file": "https://static.exploro.one/pdf/celery-intro.pdf"
     },
@@ -40,7 +40,7 @@
         "file": "https://static.exploro.one/pdf/parallelization-of-solving-matrix-equations.pdf"
     },
     {
-        "name": "用GPU加速运行《生命游戏》",
+        "name": "用 GPU 加速运行《生命游戏》",
         "date": "2021-01-23",
         "file": "https://static.exploro.one/pdf/automata-cuda.pdf"
     },
@@ -55,17 +55,17 @@
         "file": "https://static.exploro.one/pdf/svm-intro.pdf"
     },
     {
-        "name": "基于LSA的文本索引技术初探",
+        "name": "基于 LSA 的文本索引技术初探",
         "date": "2021-01-17",
         "file": "https://static.exploro.one/pdf/semantic-indexing.pdf"
     },
     {
-        "name": "用CUDA在GPU上实现遗传算法",
+        "name": "用 CUDA 在 GPU 上实现遗传算法",
         "date": "2021-01-17",
         "file": "https://static.exploro.one/pdf/gpu-tsp.pdf"
     },
     {
-        "name": "SVD方法应用于矩阵近似",
+        "name": "SVD 方法应用于矩阵近似",
         "date": "2021-01-13",
         "file": "https://static.exploro.one/pdf/svd-matrix-approximation.pdf"
     },
