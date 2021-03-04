@@ -136,7 +136,7 @@ class CAConfigures extends React.Component {
         let rule = this.state.rule;
         const v = rule[k];
         rule[k] = (v+1) % 2;
-        this.setState({"rule": rule});
+        this.setState({"rule": rule}, () => this.props.ruleUpdate(rule));
     }
 
     onKeyDown(e) {
@@ -451,7 +451,7 @@ class InitialStateConfigures extends React.Component {
         data[key] = (data[key] + 1) % 2;
         this.setState({
             "data": data
-        });
+        }, () => this.props.initialStateUpdate(data));
     }
 
     render() {
@@ -520,14 +520,24 @@ class CA extends React.Component {
         super(props);
     }
 
+    ruleUpdate(e) {
+        console.log("ruleUpdate");
+        console.log(e);
+    }
+
+    initialStateUpdate(e) {
+        console.log("initialstateupdate");
+        console.log(e);
+    }
+
     render() {
 
         return <Layout>
             <SEO title="自动机" />
             <Menu/>
             <CAScreen />
-            <CAConfigures />
-            <InitialStateConfigures />
+            <CAConfigures ruleUpdate={e => this.ruleUpdate(e)} />
+            <InitialStateConfigures initialStateUpdate={e => this.initialStateUpdate(e)} />
         </Layout>;
     }
 
