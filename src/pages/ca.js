@@ -600,7 +600,8 @@ class CA extends React.Component {
         console.log("ruleUpdate");
         console.log(e);
         this.setState({
-            "rule": e
+            "rule": e,
+            "scannerIdx": 0
         });
     }
 
@@ -619,7 +620,8 @@ class CA extends React.Component {
                 if (tIdx < data.length) {
                     data[tIdx] = v;       
                     this.setState({
-                        "data": data
+                        "data": data,
+                        "scannerIdx": 0
                     });
                 }
             }
