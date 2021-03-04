@@ -373,5 +373,13 @@
         "avatar": "https://blog.adworld.top/photo/zhade2.jpg",
         "addDate": "2021-03-05",
         "dateVerified": true
+    },
+    {
+        "title": "itsNekoDeng",
+        "link": "https://nekodeng.gitee.io",
+        "avatar": "https://nekodeng.gitee.io/medias/avatar.jpg",
+        "description": "十万伏特皮卡丘，梦想是世界和平，想要发光发热",
+        "addDate": "2021-03-05",
+        "dateVerified": true
     }
 ]
