@@ -89,3 +89,113 @@ h3 {
 
     justify-content: center;
 }
+
+.cellular-white {
+    min-width: 6px;
+    min-height: 6px;
+    margin: 0px;
+    padding: 0px;
+    background-color: #fdf6e3;
+}
+
+.cellular-black {
+    min-width: 6px;
+    min-height: 6px;
+    margin: 0px;
+    padding: 0px;
+    background-color: #586e75;
+}
+
+.ca {
+    margin-top: 2rem;
+    border-style: solid;
+    border-color: #586e75;
+    padding: 16px;
+    display: grid;
+    justify-content: center;
+    grid-template-rows: repeat(64, 6px);
+    grid-template-columns: repeat(96, 6px);
+}
+
+.caconfigure {
+    margin-top: 2rem;
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    border-style: solid;
+    border-color: #586e75;
+    border-width: 3px;
+    padding: 16px;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    margin-bottom: 4rem;
+}
+
+.caconfigure:focus {
+    outline: none;
+}
+
+.caconfigurekeyboardup {
+    border-style: solid;
+    border-color: #586e75;
+    border-width: 1px;
+    width: 24px;
+    height: 24px;
+    text-align: center;
+}
+
+.caconfigurekeyboardup:hover {
+    cursor: default;
+}
+
+.caconfigurekeyboarddown {
+    border-style: solid;
+    border-color: #fdf6e3;
+    border-width: 1px;
+    width: 24px;
+    height: 24px;
+    text-align: center;
+}
+
+.caconfigurekeyboarddown:hover {
+    cursor: default;
+}
+
+.ruleswitch {
+    display: grid;
+    grid-template-rows: repeat(2, 15px);
+    grid-template-columns: repeat(3, 15px);
+    border-style: solid;
+    border-width: 1px;
+    border-color: #fdf6e3;
+    padding: 6px;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+}
+
+.ruleswitch:hover {
+    cursor: pointer;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #586e75;
+}
+
+.ruleswitchon {
+    width: 9px;
+    height: 9px;
+    background-color: #586e75;
+    border-style: solid;
+    border-color: #586e75;
+    border-width: 1px;
+}
+
+.ruleswitchoff {
+    width: 9px;
+    height: 9px;
+    background-color: #fdf6e3;
+    border-style: solid;
+    border-color: #586e75;
+    border-width: 1px;
+}
