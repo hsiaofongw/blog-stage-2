@@ -357,5 +357,13 @@
         "avatar": "http://blog.dylanwu.space/assets/icon/apple-touch-icon-192x192.png",
         "addDate": "2021-03-01",
         "dateVerified": true
+    },
+    {
+        "title": "果子酱",
+        "description": "业精于勤，荒于嬉；行成于思，毁于随",
+        "link": "https://cwxyr.me/",
+        "avatar": "https://cdn2.sublimerui.top/2021/02/04/avator.jpg",
+        "addDate": "2021-03-05",
+        "dateVerified": true
     }
 ]
