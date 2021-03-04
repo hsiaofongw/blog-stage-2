@@ -91,16 +91,16 @@ h3 {
 }
 
 .cellular-white {
-    min-width: 6px;
-    min-height: 6px;
+    min-width: 12px;
+    min-height: 12px;
     margin: 0px;
     padding: 0px;
     background-color: #fdf6e3;
 }
 
 .cellular-black {
-    min-width: 6px;
-    min-height: 6px;
+    min-width: 12px;
+    min-height: 12px;
     margin: 0px;
     padding: 0px;
     background-color: #586e75;
@@ -113,8 +113,8 @@ h3 {
     padding: 16px;
     display: grid;
     justify-content: center;
-    grid-template-rows: repeat(64, 6px);
-    grid-template-columns: repeat(96, 6px);
+    grid-template-rows: repeat(16, 12px);
+    grid-template-columns: repeat(32, 12px);
 }
 
 .caconfigure {

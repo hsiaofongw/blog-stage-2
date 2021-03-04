@@ -241,36 +241,14 @@ class CAConfigures extends React.Component {
 }
 
 class CAScreen extends React.Component {
-
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            "nWidth": 96,
-            "nHeight": 64,
-            "data": []
-        }
-    }
-
-    componentDidMount() {
-        let data = [];
-
-        for (let i = 0; i < this.state.nHeight; i++) {
-            for (let j = 0; j < this.state.nWidth; j++) {
-                data.push(1);
-            }
-        }
-
-        this.setState({"data": data});
-    }
     
     render() {
 
         let elements = [];
-        for (let i = 0; i < this.state.nHeight; i++) {
-            for (let j = 0; j < this.state.nWidth; j++) {
-                let idx = i * this.state.nWidth + j;
-                let value = this.state.data[idx];
+        for (let i = 0; i < this.props.height; i++) {
+            for (let j = 0; j < this.props.width; j++) {
+                let idx = i * this.props.width + j;
+                let value = this.props.data[idx];
                 if (value === 0) {
                     elements.push(<div key={idx} className="cellular-white"></div>);
                 }
@@ -518,16 +496,134 @@ class CA extends React.Component {
 
     constructor(props) {
         super(props);
+
+        this.state = {
+            "nWidth": 32,
+            "nHeight": 16,
+            "rule": {},
+            "data": [],
+            "scannerIdx": 0,
+            "timer": undefined
+        };
+    }
+
+    componentDidMount() {
+        let data = [];
+
+        for (let i = 0; i < this.state.nHeight; i++) {
+            for (let j = 0; j < this.state.nWidth; j++) {
+                data.push(0);
+            }
+        }
+
+        this.setState({"data": data}, () => this.startTicking());
+    }
+
+    componentWillUnmount() {
+        if (this.state.timer) {
+            clearInterval(this.state.timer);
+        }
+    }
+
+    startTicking() {
+        const period = 100;
+
+        const timer = setInterval(
+            () => this.evolve(),
+            period
+        );
+
+        this.setState({
+            "timer": timer
+        });
+    }
+
+    evolve() {
+        const scannerIdx = this.state.scannerIdx;
+        let data = this.state.data;
+        let prev = data[this.getPrevIdx()];
+        let curr = data[scannerIdx];
+        let next = data[this.getNextIdx()];
+        let key = `${prev}${curr}${next}`;
+        let value = 0;
+        let rule = this.state.rule;
+        if (key in rule) {
+            value = rule[key];
+        }
+
+        let nextRow = this.getNextRowIdx();
+
+        data[nextRow] = value;
+        this.setState({
+            "data": data
+        }, () => this.scannerStep());
+    }
+
+    getNextRowIdx() {
+        let scannerIdx = this.state.scannerIdx;
+        const width = this.state.nWidth;
+        const height = this.state.nHeight;
+        const area = width * height;
+
+        return (scannerIdx + width) % area;
+    }
+
+    getPrevIdx() {
+        let scannerIdx = this.state.scannerIdx;
+        const width = this.state.nWidth;
+        const height = this.state.nHeight;
+        const area = width * height;
+
+        return (scannerIdx - 1) % area;
+    }
+
+    getNextIdx() {
+        let scannerIdx = this.state.scannerIdx;
+        const width = this.state.nWidth;
+        const height = this.state.nHeight;
+        const area = width * height;
+
+        return (scannerIdx + 1) % area;
+    }
+
+    scannerStep() {
+        const width = this.state.nWidth;
+        const height = this.state.nHeight;
+        const area = width * height;
+        const scannerIdx = this.state.scannerIdx;
+        this.setState({
+            "scannerIdx": (scannerIdx + 1) % area
+        });
     }
 
     ruleUpdate(e) {
         console.log("ruleUpdate");
         console.log(e);
+        this.setState({
+            "rule": e
+        });
     }
 
     initialStateUpdate(e) {
-        console.log("initialstateupdate");
-        console.log(e);
+        let data = this.state.data;
+        let keys = [ 
+            '0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
+            'A', 'B', 'C', 'D', 'E', 'F'
+        ];
+        for (let i = 0; i < keys.length; i++) {
+            for (let j = 0; j < keys.length; j++) {
+                let k = `${keys[i]}${keys[j]}`;
+                let v = e[k];
+
+                let tIdx = i * keys.length + j;
+                if (tIdx < data.length) {
+                    data[tIdx] = v;       
+                    this.setState({
+                        "data": data
+                    });
+                }
+            }
+        }
     }
 
     render() {
@@ -535,7 +631,7 @@ class CA extends React.Component {
         return <Layout>
             <SEO title="自动机" />
             <Menu/>
-            <CAScreen />
+            <CAScreen data={this.state.data} height={this.state.nHeight} width={this.state.nWidth} />
             <CAConfigures ruleUpdate={e => this.ruleUpdate(e)} />
             <InitialStateConfigures initialStateUpdate={e => this.initialStateUpdate(e)} />
         </Layout>;
