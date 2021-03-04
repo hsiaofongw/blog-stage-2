@@ -17,24 +17,104 @@ class Friends extends React.Component {
 
     constructor(props) {
         super(props);
+
+        this.state = {
+            "cards": [],
+            "timer": undefined
+        };
+    }
+
+    componentDidMount() {
+        this.setState(
+            {
+                "cards": CardData
+            },
+            () => this.startTicking()
+        );
+    }
+
+    startTicking() {
+        this.redistribute();
+
+        if (!this.state.timer) {
+            const period = 30000;
+            const timer = setInterval(() => this.tick(), period);
+            this.setState({
+                "timer": timer
+            });
+        }
+    }
+
+    tick() {
+        console.log("tick");
+        console.log(new Date());
+        this.redistribute();
+    }
+
+    redistribute() {
+        let cards = this.state.cards;
+        let indices = [];
+        for (const i in cards) {
+            indices.push(i);
+        }
+        for (const i in cards) {
+            indices.push(i);
+        }
+        for (const i in cards) {
+            indices.push(i);
+        }
+        for (const i in cards) {
+            indices.push(i);
+        }
+        for (const i in cards) {
+            indices.push(i);
+        }
+        for (const i in cards) {
+            indices.push(i);
+        }
+
+
+        let r = this;
+
+        function start(idxes) {
+            console.log("start");
+            if (idxes.length === 0) {
+                return;
+            }
+
+            const i = idxes.shift();
+            const choose = getRandomIntInclusive(i, cards.length-1);
+
+            const temp = cards[i];
+            cards[i] = cards[choose];
+            cards[choose] = temp;
+            r.setState(
+                {"cards": cards}, 
+                () => {setTimeout(() => start(idxes), 5)}
+            );
+        }
+
+        start(indices);
+
+        // if (cards.length >= 2) {
+        //     for (const i in cards) {
+        //         let choose = getRandomIntInclusive(i, cards.length-1);
+
+        //         const temp = cards[i];
+        //         cards[i] = cards[choose];
+        //         cards[choose] = temp;
+        //         this.setState({"cards": cards});
+        //     }
+        // }
     }
 
     render() {
-        if (CardData.length >= 2) {
-            for (const i in CardData) {
-                let choose = getRandomIntInclusive(i, CardData.length-1);
 
-                const temp = CardData[i];
-                CardData[i] = CardData[choose];
-                CardData[choose] = temp;
-            }
-        }
-
-        let avatars = CardData.map((data, index) => {
+        let avatars = this.state.cards.map((data, index) => {
             return <CardOfFriend key={data.link} link={data.link} favicon={data.avatar} alt="图片" />;
         });
 
-        let records = CardData.map((data, index) => {
+        let records = this.state.cards.map((data, index) => {
             return <CardSummary 
                 key={data.link}
                 articleName={data.title} 
