@@ -381,5 +381,13 @@
         "description": "十万伏特皮卡丘，梦想是世界和平，想要发光发热",
         "addDate": "2021-03-05",
         "dateVerified": true
+    },
+    {
+        "title": "杯子萌",
+        "link": "https://www.cupmoe.com/",
+        "avatar": "https://cdn.jsdelivr.net/gh/cutemoe/moepic/img/cover/toutu.jpg",
+        "description": "万物皆可萌",
+        "addDate": "2021-03-05",
+        "dateVerified": true
     }
 ]
