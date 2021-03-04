@@ -3,15 +3,41 @@ import React from "react";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 import Menu from "../components/menu";
-import CardOfFriend from "../components/card-of-friend";
-import CardData from "../../content/cards.json";
-import CardSummary from "../components/card-summary";
 import "../components/layout.css";
+
+class SingeSwitch extends React.Component {
+
+    onClick(e) {
+        e.stopPropagation();
+        this.props.switchUpdate();
+    }
+
+    render() {
+
+        const switchon = <div className="singleswitchon"></div>;
+        const switchoff = <div className="singleswitchoff"></div>;
+
+        let sw = undefined;
+        if (this.props.v === 1) {
+            sw = switchon;
+        }
+        else {
+            sw = switchoff;
+        }
+
+        return <div onClick={e => this.onClick(e)} className="singleswitch">
+            {sw}
+        </div>;
+
+    }
+
+}
 
 class RuleSwitch extends React.Component {
 
 
     onClick(e) {
+        e.stopPropagation();
         this.props.ruleUpdate();
     }
 
@@ -59,6 +85,21 @@ class RuleSwitch extends React.Component {
     }
 }
 
+class KeyPressed extends React.Component {
+
+    render() {
+        return <div className="caconfigurekeyboarddown" >{this.props.keytext}</div>;
+    }
+    
+}
+
+class KeyReleased extends React.Component {
+
+    render() {
+        return <div className="caconfigurekeyboardup" >{this.props.keytext}</div>;
+    }
+}
+
 class CAConfigures extends React.Component {
 
     constructor(props) {
@@ -84,8 +125,11 @@ class CAConfigures extends React.Component {
                 "5": false,
                 "6": false,
                 "7": false
-            }
+            },
+            "isFocused": false
         };
+
+        this.r = React.createRef();
     }
 
     ruleUpdate(k) {
@@ -119,6 +163,23 @@ class CAConfigures extends React.Component {
             },
             () => this.ruleUpdate(ruleEntry)
         );
+    }
+
+    onClick(e) {
+        e.preventDefault();
+
+        if (this.state.isFocused) {
+            this.r.current.blur();
+            this.setState({
+                "isFocused": false
+            })
+        }
+        else {
+            this.r.current.focus();
+            this.setState({
+                "isFocused": true
+            })
+        }
     }
 
     keyToRuleEntry(k) {
@@ -157,17 +218,21 @@ class CAConfigures extends React.Component {
             let keydown = this.state.keydowns[k];
             if (keydown) {
                 keyElements.push(
-                    <div key={k} className="caconfigurekeyboarddown" >{k}</div>
+                    <KeyPressed key={k} keytext={k} />
                 )
             }
             else {
                 keyElements.push(
-                    <div key={k} className="caconfigurekeyboardup" >{k}</div>
+                    <KeyReleased key={k} keytext={k} />
                 )
             }
         }
 
-        return <div className="caconfigure" tabIndex={-1} onKeyDown={e => this.onKeyDown(e)} onKeyUp={e => this.onKeyUp(e)} >
+        if (!this.state.isFocused) {
+            keyElements = undefined;
+        }
+
+        return <div ref={this.r} onClick={e => this.onClick(e)}  className="caconfigure" tabIndex={-1} onKeyDown={e => this.onKeyDown(e)} onKeyUp={e => this.onKeyUp(e)} >
             {switches}
             {keyElements}
         </div>;
@@ -219,6 +284,236 @@ class CAScreen extends React.Component {
     }
 }
 
+class InitialStateConfigures extends React.Component {
+
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            "data": {},
+            "isFocused": false,
+            "firstKeyPressed": {
+                "0": false,
+                "1": false,
+                "2": false,
+                "3": false,
+                "4": false,
+                "5": false,
+                "6": false,
+                "7": false,
+                "8": false,
+                "9": false,
+                "A": false,
+                "B": false,
+                "C": false,
+                "D": false,
+                "E": false,
+                "F": false
+            },
+            "secondKeyPressed": {
+                "0": false,
+                "1": false,
+                "2": false,
+                "3": false,
+                "4": false,
+                "5": false,
+                "6": false,
+                "7": false,
+                "8": false,
+                "9": false,
+                "A": false,
+                "B": false,
+                "C": false,
+                "D": false,
+                "E": false,
+                "F": false
+            },
+            "currentKeyIndex": 0,
+            "keyBuffer": ""
+        };
+
+        this.rows = [
+            "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", 
+            "A", "B", "C", "D", "E", "F"
+        ];
+
+        this.cols = [
+            "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", 
+            "A", "B", "C", "D", "E", "F"
+        ];
+
+        this.r = React.createRef();
+    }
+
+    componentDidMount() {
+        const rows = this.rows;
+        const cols = this.cols;
+        const nRows = rows.length;
+        const nCols = cols.length;
+
+        let data = {};
+        for (let i = 0; i < nRows; i++) {
+            for (let j = 0; j < nCols; j++) {
+                const k = `${rows[i]}${cols[j]}`;
+                data[k] = 0;
+            }
+        }
+
+        this.setState({"data": data});
+    }
+
+    onClick(e) {
+        e.preventDefault();
+
+        if (this.state.isFocused) {
+            this.r.current.blur();
+            this.setState({
+                "isFocused": false
+            })
+        }
+        else {
+            this.r.current.focus();
+            this.setState({
+                "isFocused": true
+            })
+        }
+    }
+
+    onKeyDown(e) {
+        let key = e.key;
+        key = key.toUpperCase();
+
+        if (!(key in this.state.firstKeyPressed)) {
+            return;
+        }
+
+        let current = this.state.currentKeyIndex;
+        if (current === 0) {
+            let firstKeyPressed = this.state.firstKeyPressed;
+            if (!firstKeyPressed[key]) {
+                firstKeyPressed[key] = true;
+                this.setState({
+                    "firstKeyPressed": firstKeyPressed
+                });
+            }
+        }
+        else if (current === 1) {
+            let secondKeyPressed = this.state.secondKeyPressed;
+            if (!secondKeyPressed[key]) {
+                secondKeyPressed[key] = true;
+                this.setState({
+                    "secondKeyPressed": secondKeyPressed
+                });
+            }
+        }
+    }
+
+    onKeyUp(e) {
+        let key = e.key;
+        key = key.toUpperCase();
+
+        if (!(key in this.state.firstKeyPressed)) {
+            return;
+        }
+
+        let current = this.state.currentKeyIndex;
+        if (current === 0) {
+            current = (current + 1) % 2;
+            let firstKeyPressed = this.state.firstKeyPressed;
+            if (firstKeyPressed[key]) {
+                firstKeyPressed[key] = false;
+                this.setState({
+                    "firstKeyPressed": firstKeyPressed,
+                    "currentKeyIndex": current,
+                    "keyBuffer": this.state.keyBuffer+key
+                });
+            }
+        }
+        else if (current === 1) {
+            current = (current + 1) % 2;
+            let secondKeyPressed = this.state.secondKeyPressed;
+            if (secondKeyPressed[key]) {
+                let keyBuffer = this.state.keyBuffer;
+                keyBuffer = keyBuffer + key;
+
+                secondKeyPressed[key] = false;
+                this.setState({
+                    "secondKeyPressed": secondKeyPressed,
+                    "currentKeyIndex": current,
+                    "keyBuffer": ""
+                }, () => this.switchUpdate(keyBuffer));
+            }
+        }
+    }
+
+    switchUpdate(key) {
+        let data = this.state.data;
+        data[key] = (data[key] + 1) % 2;
+        this.setState({
+            "data": data
+        });
+    }
+
+    render() {
+        let elements = [];
+        for (let i = 0; i < 17; i++) {
+            for (let j = 0; j < 17; j++) {
+                if (i === 0 && j === 0) {
+                    elements.push(
+                        <div key="empty"></div>
+                    );
+                }
+                else if (i !== 0 && j === 0) {
+                    const ti = i-1;
+                    const keyText = this.cols[ti];
+                    const isPressed = this.state.firstKeyPressed[keyText];
+                    let key = <div key={"first-"+keyText}></div>;
+                    if (this.state.isFocused) {
+                        if (isPressed) {
+                            key = <KeyPressed key={"first-"+keyText} keytext={keyText} />;
+                        }
+                        else {
+                            key = <KeyReleased key={"first-"+keyText} keytext={keyText} />;
+                        }
+                    }
+                    elements.push(key);
+                }
+                else if (i === 0 && j !== 0) {
+                    const tj = j-1;
+                    const keyText = this.rows[tj];
+                    const isPressed = this.state.secondKeyPressed[keyText];
+                    let key = <div key={"second-"+keyText} ></div>;
+                    if (this.state.isFocused) {
+                        if (isPressed) {
+                            key = <KeyPressed key={"second-"+keyText} keytext={keyText} />;
+                        }
+                        else {
+                            key = <KeyReleased key={"second-"+keyText} keytext={keyText} />;
+                        }
+                    }
+                    elements.push(key);
+                }
+                else {
+                    const ti = i-1;
+                    const tj = j-1;
+                    const firstKey = this.rows[ti];
+                    const secondKey = this.cols[tj];
+                    const key = `${firstKey}${secondKey}`;
+                    const v = this.state.data[key];
+                    elements.push(
+                        <SingeSwitch key={key} v={v} switchUpdate={e => this.switchUpdate(key)} />
+                    );
+                }
+            }
+        }
+
+        return <div tabIndex={-1} ref={this.r} onKeyDown={e => this.onKeyDown(e)} onKeyUp={e => this.onKeyUp(e)} onClick={e => this.onClick(e)} className="initialstateconfigures" >
+            {elements}
+        </div>;
+    }
+
+}
+
 class CA extends React.Component {
 
     constructor(props) {
@@ -232,6 +527,7 @@ class CA extends React.Component {
             <Menu/>
             <CAScreen />
             <CAConfigures />
+            <InitialStateConfigures />
         </Layout>;
     }
 
