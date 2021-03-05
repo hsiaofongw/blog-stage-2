@@ -55,6 +55,12 @@ h3 {
     line-height: 0px;
 }
 
+.card-of-friend:hover {
+    outline-style: solid;
+    outline-color: #839496;
+    outline-width: 2px;
+}
+
 #main {
     margin: 0 auto;
     max-width: 760px;

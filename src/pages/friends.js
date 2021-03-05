@@ -20,14 +20,22 @@ class Friends extends React.Component {
 
         this.state = {
             "cards": [],
-            "timer": undefined
+            "timer": undefined,
+            "hoverOn": undefined,
+            "keyToCards": {}
         };
     }
 
     componentDidMount() {
+        let keyToCards = {};
+        for (const record of CardData) {
+            keyToCards[record.link] = record;
+        }
+
         this.setState(
             {
-                "cards": CardData
+                "cards": CardData,
+                "keyToCards": keyToCards
             },
             () => this.startTicking()
         );
@@ -108,10 +116,29 @@ class Friends extends React.Component {
         // }
     }
 
+    onMouseOver(link) {
+        this.setState({
+            "hoverOn": link
+        });
+    }
+
+    onMouseLeave(link) {
+        this.setState({
+            "hoverOn": undefined
+        });
+    }
+
     render() {
 
         let avatars = this.state.cards.map((data, index) => {
-            return <CardOfFriend key={data.link} link={data.link} favicon={data.avatar} alt="图片" />;
+            return <CardOfFriend 
+                onMouseOver={() => this.onMouseOver(data.link)} 
+                onMouseLeave={() => this.onMouseLeave(data.link)}
+                key={data.link} 
+                link={data.link} 
+                favicon={data.avatar} 
+                alt="图片" 
+            />;
         });
 
         let records = this.state.cards.map((data, index) => {
@@ -123,6 +150,19 @@ class Friends extends React.Component {
                 href={data.link}
             />;
         });
+
+        let hoverOn = undefined;
+        if (this.state.hoverOn) {
+            let d = this.state.keyToCards[this.state.hoverOn];
+            hoverOn = <CardSummary
+                key={d.link+"selected"}
+                articleName={d.title+" (当前选中)"}
+                date={d.addDate+" 加入"}
+                description={d.description}
+                href={d.link}
+            />;
+            records.unshift(hoverOn);
+        }
 
         return <Layout>
             <SEO title="友链" />
