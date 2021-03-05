@@ -389,5 +389,13 @@
         "description": "万物皆可萌",
         "addDate": "2021-03-05",
         "dateVerified": true
+    },
+    {
+        "title": "ADD-SP's blog",
+        "link": "https://www.addesp.com",
+        "avatar": "https://www.addesp.com/avatar",
+        "description": "记录 & 分享 & 感受",
+        "addDate": "2021-03-05",
+        "dateVerified": true
     }
 ]
