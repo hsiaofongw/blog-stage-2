@@ -25,6 +25,7 @@ class HomePage extends React.Component {
 
         return <Layout>
             <SEO title="首页" />
+            <div className="slogan">localhost:3000，我只取一瓢饮．</div>
             <Menu />
             <div>{articleElements}</div>
         </Layout>;

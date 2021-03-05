@@ -19,6 +19,7 @@ class AboutPage extends React.Component {
         });
 
         return <Layout>
+            <div className="slogan">localhost:3000，我只取一瓢饮．</div>
             <SEO title="关于" />
             <Menu />
             <div>{elements}</div>

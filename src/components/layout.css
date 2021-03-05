@@ -264,3 +264,7 @@ h3 {
 .initialstateconfigures:focus {
     outline: none;
 }
+
+.slogan {
+    margin-bottom: 24px;
+}
