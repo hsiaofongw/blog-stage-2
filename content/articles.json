@@ -1,5 +1,10 @@
 [
     {
+        "name": "一个缓存配置案例",
+        "date": "2021-03-05",
+        "file": "https://static.exploro.one/pdf/proxy-case-study-1.pdf"
+    },
+    {
         "name": "用向量方法巧解初中几何题",
         "date": "2021-02-21",
         "file": "https://static.exploro.one/pdf/geometry-vector-approach-1.pdf"
