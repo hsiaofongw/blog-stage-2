@@ -397,5 +397,13 @@
         "description": "记录 & 分享 & 感受",
         "addDate": "2021-03-05",
         "dateVerified": true
+    },
+    {
+        "title": "十年之约",
+        "link": "https://www.foreverblog.cn/",
+        "avatar": "https://www.foreverblog.cn/favicon.ico",
+        "description": "一个人的寂寞，一群人的狂欢。",
+        "addDate": "2021-03-05",
+        "dateVerified": true
     }
 ]
