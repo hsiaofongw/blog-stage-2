@@ -397,5 +397,13 @@
         "description": "一个人的寂寞，一群人的狂欢。",
         "addDate": "2021-03-05",
         "dateVerified": true
+    },
+    {
+        "title": "风渐远",
+        "link": "https://www.naraku.cn/",
+        "avatar": "https://www.naraku.cn/res/avatar.png",
+        "description": "临渊羡鱼,莫如退而结网",
+        "addDate": "2021-03-05",
+        "dateVerified": true
     }
 ]
