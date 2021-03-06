@@ -632,7 +632,6 @@ class CA extends React.Component {
 
         return <Layout>
             <SEO title="自动机" />
-            <div className="slogan">localhost:3000，我只取一瓢饮．</div>
             <Menu/>
             <CAScreen data={this.state.data} height={this.state.nHeight} width={this.state.nWidth} />
             <CAConfigures ruleUpdate={e => this.ruleUpdate(e)} />

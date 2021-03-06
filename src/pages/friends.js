@@ -166,7 +166,6 @@ class Friends extends React.Component {
 
         return <Layout>
             <SEO title="友链" />
-            <div className="slogan">localhost:3000，我只取一瓢饮．</div>
             <Menu/>
             <div id="container-of-cards">{avatars}</div>
             <div id="details-of-cards">{records}</div>

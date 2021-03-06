@@ -1,5 +1,10 @@
 [
     {
+        "name": "R软件绘图中文渲染解决方案",
+        "file": "https://static.exploro.one/pdf/r-cjk-font-rendering.pdf",
+        "date": "2021-03-07"
+    },
+    {
         "name": "一个缓存配置案例",
         "date": "2021-03-05",
         "file": "https://static.exploro.one/pdf/proxy-case-study-1.pdf"
